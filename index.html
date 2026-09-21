@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FRIV 2026 - Selección de Juegos</title>
+  <style>
+    :root {
+      --bg-purple-dark: #120024;
+      --bg-purple-main: #2a085c;
+      --accent-yellow: #ffe600;
+      --accent-orange: #ff5500;
+      --accent-cyan: #00f0ff;
+      --border-glow: #6a1b9a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    body {
+      background-color: var(--bg-purple-dark);
+      background-image: 
+        radial-gradient(circle at 50% 20%, #4a1282 0%, transparent 60%),
+        radial-gradient(circle at 80% 80%, #28004d 0%, transparent 50%),
+        linear-gradient(0deg, rgba(0,0,0,0.4) 0%, transparent 100%);
+      font-family: 'Impact', 'Arial Black', sans-serif;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px 10px;
+      overflow-x: hidden;
+    }
+
+    .header-logo {
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .friv-title {
+      font-size: 4rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, #fff 0%, var(--accent-yellow) 40%, var(--accent-orange) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(4px 4px 0px #000) drop-shadow(0 0 15px rgba(255, 230, 0, 0.6));
+      transform: scaleY(1.1);
+    }
+
+    .friv-subtitle {
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+      color: var(--accent-cyan);
+      letter-spacing: 3px;
+      text-shadow: 0 0 5px var(--accent-cyan);
+      margin-top: -5px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      max-width: 900px;
+      width: 100%;
+      gap: 12px;
+      padding: 18px;
+      background: rgba(42, 8, 92, 0.6);
+      border: 4px solid var(--border-glow);
+      border-radius: 16px;
+      box-shadow: 
+        0 0 25px rgba(106, 27, 154, 0.5),
+        inset 0 0 15px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+    }
+
+    .game-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(135deg, #5c18a6 0%, #2a085c 100%);
+      border: 3px solid #8e24aa;
+      border-radius: 12px;
+      text-decoration: none;
+      color: #fff;
+      overflow: hidden;
+      box-shadow: 
+        0 5px 0px #170233,
+        0 8px 10px rgba(0,0,0,0.5);
+      transition: all 0.15s ease-in-out;
+    }
+
+    .game-tab:hover {
+      transform: translateY(-4px) scale(1.05);
+      border-color: var(--accent-yellow);
+      box-shadow: 
+        0 9px 0px #170233,
+        0 0 15px var(--accent-yellow);
+      z-index: 10;
+    }
+
+    .game-tab:active {
+      transform: translateY(2px);
+      box-shadow: 0 3px 0px #170233;
+    }
+
+    .game-tab::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 40%;
+      background: rgba(255, 255, 255, 0.15);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      pointer-events: none;
+    }
+
+    .game-number {
+      position: absolute;
+      top: 4px;
+      left: 6px;
+      font-size: 0.75rem;
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.6);
+      text-shadow: 1px 1px 2px #000;
+      z-index: 2;
+    }
+
+    .game-icon {
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 50%;
+    }
+
+    /* Estilo exclusivo para las imágenes PNG */
+    .game-icon img {
+      max-width: 45px;
+      max-height: 45px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.7));
+    }
+
+    .game-title {
+      font-size: 0.8rem;
+      color: #fff;
+      text-align: center;
+      padding: 0 4px;
+      text-shadow: 2px 2px 0px #000;
+      line-height: 0.9;
+      word-break: break-word;
+      z-index: 2;
+    }
+
+    @media (max-width: 600px) {
+      .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+        gap: 8px;
+        padding: 10px;
+      }
+      .friv-title {
+        font-size: 2.8rem;
+      }
+      .game-title {
+        font-size: 0.7rem;
+      }
+      .game-icon img {
+        max-width: 35px;
+        max-height: 35px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header-logo">
+    <h1 class="friv-title">FRIV 2026</h1>
+    <div class="friv-subtitle">SELECCIÓN DE JUEGOS</div>
+  </header>
+
+  <main class="grid-container" id="gridContainer"></main>
+
+  <script>
+    const TOTAL_JUEGOS = 22;
+    const gridContainer = document.getElementById('gridContainer');
+
+    for (let i = 1; i <= TOTAL_JUEGOS; i++) {
+      const tab = document.createElement('a');
+      tab.className = 'game-tab';
+
+      let gameHref = `juego${i}.html`;
+      let gameTitle = `JUEGO ${i}`;
+      let imageSrc = `img/juego${i}.png`; //
+
+    
+      if (i === 1) {
+        gameHref = 'Snake-main/V2/index.html';
+        gameTitle = 'SNAKE';
+        imageSrc = 'img/Snake.png';
+      }
+
+      tab.href = gameHref;
+
+      tab.innerHTML = `
+        <span class="game-number">${i < 10 ? '0' + i : i}</span>
+        <div class="game-icon">
+          <img src="${imageSrc}" alt="${gameTitle}">
+        </div>
+        <div class="game-title">${gameTitle}</div>
+      `;
+
+      gridContainer.appendChild(tab);
+    }
+  </script>
+</body>
+</html>
