@@ -147,7 +147,6 @@
       height: 50%;
     }
 
-    /* Estilo exclusivo para las imágenes PNG */
     .game-icon img {
       max-width: 45px;
       max-height: 45px;
@@ -206,20 +205,61 @@
 
       let gameHref = `juego${i}.html`;
       let gameTitle = `JUEGO ${i}`;
-      let imageSrc = `img/juego${i}.png`; //
+      let imageSrc = `img/juego${i}.png`;
 
-    
+      // Configuración de casos específicos
       if (i === 1) {
         gameHref = 'Snake-main/V2/index.html';
         gameTitle = 'SNAKE';
         imageSrc = 'img/Snake.png';
-      }
-
-      if  (i === 2) {
+      } else if (i === 2) {
         gameHref = 'Tresenraya/index.html';
         gameTitle = 'Tres en raya';
         imageSrc = 'img/juego2.png';
+      } else if (i === 3) {
+        gameHref = 'Pacman/version_modificada/index.html';
+        gameTitle = 'Pacman';
+        imageSrc = 'img/juego3.png';
+      } else if (i === 4) {
+        gameHref = 'Sudoku/Sudoku Version 2/index.html';
+        gameTitle = 'Sudoku';
+        imageSrc = 'img/juego4.png';
+      } else if (i === 5) {
+        gameHref = 'Nuevo/index.html';
+        gameTitle = 'Gun fight';
+        imageSrc = 'img/juego5.png';
+      } else if (i === 6) {
+        gameHref = 'PPT/version2/index.html';
+        gameTitle = 'Piedra, papel o tijera';
+        imageSrc = 'img/juego6.png';
+      } else if (i === 7) {
+        gameHref = '2048/index.html';
+        gameTitle = '2048';
+        imageSrc = 'img/juego7.png';
+      } else if (i ===8) {
+        gameHref = 'Space/version_2/index.html';
+        gameTitle = 'Space Invaders';
+        imageSrc = 'img/juego8.png';
+      } else if (i ===9) {
+        gameHref = 'Tetris/index.html';
+        gameTitle = 'Tetris';
+        imageSrc = 'img/juego9.png';
+      } else if (i ===10) {
+        gameHref = 'Frogger/frogger modificado/index.html';
+        gameTitle = 'Frogger';
+        imageSrc = 'img/juego10.png';
+      } else if (i ===11) {
+        gameHref = 'Geometry dash/index.html';
+        gameTitle = 'Geometry Dash';
+        imageSrc = 'img/juego11.png';
+      } else if (i ===12) {
+        gameHref = 'Buscaminas/buscaminas_yo/index.html';
+        gameTitle = 'Buscaminas';
+        imageSrc = 'img/juego12.png';
       }
+
+
+
 
       tab.href = gameHref;
 
